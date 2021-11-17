@@ -28,20 +28,16 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
       
-            ### SETUP THE ENVIRONMENT
-      - name: Setup Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.9'
-
       
-      ### PROCESS THE DATA ###
-      - name: Convert IPTVCat (JSON to m3u8)
+      - name: Main
         run: |
-          echo "Command: './python3 autoCRON.py'"
-          python  ./autoCRON.py
-          
-          
+          pwd
+          chmod +x autorun_github.sh
+          ./autorun_github.sh
+          #cd scripts
+          #python3 dailymotion_m3ugrabber.py > ../dailymotion.m3u
+          echo "m3u grabbed"
+        
       - name: git add
         run: |
           git add -A
